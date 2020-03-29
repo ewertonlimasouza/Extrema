@@ -33,6 +33,9 @@ h1, h2, h3, h4, h5,
 .text-black {
   color: #000 !important; }
 
+.text-branco {
+  color: #fff !important; }
+
 .bg-black {
   background: #000 !important; }
 
