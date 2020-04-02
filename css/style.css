@@ -34,7 +34,15 @@ h1, h2, h3, h4, h5,
   color: #000 !important; }
 
 .text-branco {
-  color: #fff !important; }
+  color: #fff !important; 
+  font-size:35px
+}
+  @media (max-width: 768px){
+    .text-branco {
+  color: #fff !important; 
+  font-size:22px
+}
+  }
 
 .bg-black {
   background: #000 !important; }
@@ -1868,7 +1876,7 @@ h1, h2, h3, h4, h5,
     z-index: 99; }
 
 .bg-image2 {
-  background-size: cover;
+  background-size: 100% ;
   background-attachment: fixed;
   position: relative; }
   .bg-image2.overlay:before {
