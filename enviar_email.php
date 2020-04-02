@@ -8,20 +8,34 @@ require 'vendor/autoload.php'; // If you're using Composer (recommended)
 // which is included in the download:
 // https://github.com/sendgrid/sendgrid-php/releases
 
+/*$nome = $_POST['fname'];
+$tel = $_POST['lname'];
+$email = $_POST['email'];
+$subject = $_POST['subject'];
+$message = $_POST['message'];*/
+
+if(isset($_REQUEST['fnome']))
+{
+// envia email aqui
+}else{
+  header('Location: index.html');
+}
+
+$nome = $_POST['fnome'];
+$tel = $_POST['telefone'];
+$gemail = $_POST['email'];
+$subject = $_POST['subject'];
+$message = $_POST['message'];
+
 $email = new \SendGrid\Mail\Mail(); 
-$email->setFrom("test@example.com", "Example User");
-$email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("ewerton.limasouza@gmail.com", "Example User");
-$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-$email->addContent(
-    "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
-);
+$email->setFrom($gemail, $nome);
+$email->setSubject($subject);
+$email->addTo("ewerton.limasouza@gmail.com");
+$email->addContent("text/html", "<h1>Contato Via site extrema </h1> <br><br> Nome: $nome <br> Telefone: $tel <br> Email: $gemail <br> Assunto: $subject <br><br> Mensagem: $message");
 $sendgrid = new \SendGrid('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');
 try {
     $response = $sendgrid->send($email);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
+    header('Location: index.html');
 } catch (Exception $e) {
     echo 'Caught exception: '. $e->getMessage() ."\n";
 }
