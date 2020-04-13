@@ -30,9 +30,9 @@ $message = $_POST['message'];
 $email = new \SendGrid\Mail\Mail(); 
 $email->setFrom($gemail, $nome);
 $email->setSubject($subject);
-$email->addTo("ewerton.limasouza@gmail.com");
-$email->addContent("text/html", "<h1>Contato Via site extrema </h1> <br><br> Nome: $nome <br> Telefone: $tel <br> Email: $gemail <br> Assunto: $subject <br><br> Mensagem: $message");
-$sendgrid = new \SendGrid('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');
+$email->addTo("sabrinaferreira2025@gmail.com");
+$email->addContent("text/html", "<h1>Contato Via site extrema </h1> <br><br> Nome: $nome <br> Telefone: $tel <br> Email: $gemail <br><br> Assunto: $subject <br><br> Mensagem: $message");
+$sendgrid = new \SendGrid('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');
 try {
     $response = $sendgrid->send($email);
     header('Location: index.html');
